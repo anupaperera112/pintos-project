@@ -5,30 +5,30 @@
 enum 
   {
     /* Projects 2 and later. */
-    SYS_HALT,                   /* Halt the operating system. */
-    SYS_EXIT,                   /* Terminate this process. */
-    SYS_EXEC,                   /* Start another process. */
-    SYS_WAIT,                   /* Wait for a child process to die. */
-    SYS_CREATE,                 /* Create a file. */
-    SYS_REMOVE,                 /* Delete a file. */
-    SYS_OPEN,                   /* Open a file. */
-    SYS_FILESIZE,               /* Obtain a file's size. */
-    SYS_READ,                   /* Read from a file. */
-    SYS_WRITE,                  /* Write to a file. */
-    SYS_SEEK,                   /* Change position in a file. */
-    SYS_TELL,                   /* Report current position in a file. */
-    SYS_CLOSE,                  /* Close a file. */
+    SYSTEM_HALT,                   /* Halt the operating system. */
+    SYSTEM_EXIT,                   /* Terminate this process. */
+    SYSTEM_EXEC,                   /* Start another process. */
+    SYSTEM_WAIT,                   /* Wait for a child process to die. */
+    SYSTEM_CREATE,                 /* Create a file. */
+    SYSTEM_REMOVE,                 /* Delete a file. */
+    SYSTEM_OPEN,                   /* Open a file. */
+    SYSTEM_FILESIZE,               /* Obtain a file's size. */
+    SYSTEM_READ,                   /* Read from a file. */
+    SYSTEM_WRITE,                  /* Write to a file. */
+    SYSTEM_SEEK,                   /* Change position in a file. */
+    SYSTEM_TELL,                   /* Report current position in a file. */
+    SYSTEM_CLOSE,                  /* Close a file. */
 
     /* Project 3 and optionally project 4. */
-    SYS_MMAP,                   /* Map a file into memory. */
-    SYS_MUNMAP,                 /* Remove a memory mapping. */
+    SYSTEM_MMAP,                   /* Map a file into memory. */
+    SYSTEM_MUNMAP,                 /* Remove a memory mapping. */
 
     /* Project 4 only. */
-    SYS_CHDIR,                  /* Change the current directory. */
-    SYS_MKDIR,                  /* Create a directory. */
-    SYS_READDIR,                /* Reads a directory entry. */
-    SYS_ISDIR,                  /* Tests if a fd represents a directory. */
-    SYS_INUMBER                 /* Returns the inode number for a fd. */
+    SYSTEM_CHDIR,                  /* Change the current directory. */
+    SYSTEM_MKDIR,                  /* Create a directory. */
+    SYSTEM_READDIR,                /* Reads a directory entry. */
+    SYSTEM_ISDIR,                  /* Tests if a fd represents a directory. */
+    SYSTEM_INUMBER                 /* Returns the inode number for a fd. */
   };
 
 #endif /* lib/syscall-nr.h */

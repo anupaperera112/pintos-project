@@ -57,31 +57,31 @@ syscall_handler (struct intr_frame *f)
 
   switch (num)
   {
-    case SYS_HALT:
+    case SYSTEM_HALT:
       halt ();
       break;
 
-    case SYS_EXIT:
+    case SYSTEM_EXIT:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       exit ((int)arg0);
       (f->eax) = (int)arg0;
       break;
 
-    case SYS_EXEC:
+    case SYSTEM_EXEC:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       is_valid_ptr ((void *)arg0);
       (f->eax) = exec ((char *)arg0);
       break;
 
-    case SYS_WAIT:
+    case SYSTEM_WAIT:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       (f->eax) = wait ((pid_t)arg0);
       break;
 
-    case SYS_CREATE:
+    case SYSTEM_CREATE:
       is_valid_ptr (f->esp + 8);
       arg0 = *(uint32_t *)(f->esp + 4);
       arg1 = *(uint32_t *)(f->esp + 8);
@@ -89,27 +89,27 @@ syscall_handler (struct intr_frame *f)
       (f->eax) = create ((char *)arg0, (unsigned)arg1);
       break;
 
-    case SYS_REMOVE:
+    case SYSTEM_REMOVE:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       is_valid_ptr ((void *)arg0);
       (f->eax) = remove ((char *)arg0);
       break;
 
-    case SYS_OPEN:
+    case SYSTEM_OPEN:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       is_valid_ptr ((void *)arg0);
       (f->eax) = open ((char *)arg0);
       break;
 
-    case SYS_FILESIZE:
+    case SYSTEM_FILESIZE:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       (f->eax) = filesize ((int)arg0);
       break;
 
-    case SYS_READ:
+    case SYSTEM_READ:
       is_valid_ptr (f->esp + 12);
       arg0 = *(uint32_t *)(f->esp + 4);
       arg1 = *(uint32_t *)(f->esp + 8);
@@ -118,7 +118,7 @@ syscall_handler (struct intr_frame *f)
       (f->eax) = read ((int)arg0, (void *)arg1, (unsigned)arg2);
       break;
 
-    case SYS_WRITE:
+    case SYSTEM_WRITE:
       is_valid_ptr (f->esp + 12);
       arg0 = *(uint32_t *)(f->esp + 4);
       arg1 = *(uint32_t *)(f->esp + 8);
@@ -127,20 +127,20 @@ syscall_handler (struct intr_frame *f)
       (f->eax) = write ((int)arg0, (void *)arg1, (unsigned)arg2);
       break;
 
-    case SYS_SEEK:  
+    case SYSTEM_SEEK:  
       is_valid_ptr (f->esp + 8);
       arg0 = *(uint32_t *)(f->esp + 4);
       arg1 = *(uint32_t *)(f->esp + 8);
       seek ((int)arg0, (unsigned)arg1);
       break;
 
-    case SYS_TELL:
+    case SYSTEM_TELL:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       (f->eax) = tell ((int)arg0);
       break;
 
-    case SYS_CLOSE:
+    case SYSTEM_CLOSE:
       is_valid_ptr (f->esp + 4);
       arg0 = *(uint32_t *)(f->esp + 4);
       close ((int)arg0);
